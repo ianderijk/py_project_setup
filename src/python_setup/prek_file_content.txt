@@ -27,4 +27,12 @@ hooks = [
         types = ["python"]
     },
 
+    {
+        id = "ty-type-check",
+        name = "Type checking",
+        entry = "uv",
+        args = ["run", "ty", "check"],
+        language = "system",
+        types = ["python"]
+    }
 ]
