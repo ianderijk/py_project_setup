@@ -4,6 +4,19 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = [
-    "ruff>=0.15.9",
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[[tool.uv.index]]
+name = 'home-index'
+url = "http://192.168.0.29:8080/simple/"
+publish-url = "http://192.168.0.29:8080/"
+explicit = true
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.12",
+    "ty>=0.0.33",
 ]

@@ -1,7 +1,8 @@
 import argparse
-from setup_uv import initialise_uv
+from setup_uv import setup_uv
 from setup_prek import setup_prek
 from setup_dirs import create_project_directories
+from setup_makefile import create_makefile
 
 
 def main() -> None:
@@ -10,11 +11,12 @@ def main() -> None:
     args = parser.parse_args()
 
     if args.mode == "full":
-        initialise_uv()
-        setup_prek()
         create_project_directories()
+        setup_uv()
+        setup_prek()
+        create_makefile()
     elif args.mode == "uv":
-        initialise_uv()
+        setup_uv()
     elif args.mode == "prek":
         setup_prek()
 
