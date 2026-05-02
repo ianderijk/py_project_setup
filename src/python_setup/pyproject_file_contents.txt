@@ -1,9 +1,12 @@
 [project]
-name = "python-setup"
-version = "1.0.0"
-description = "Automated python project setup tool"
+name = "project"
+version = "0.1.0"
+description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
+dependencies = [
+    "logger>=0.2.0",
+]
 
 [build-system]
 requires = ["hatchling"]
@@ -13,7 +16,6 @@ build-backend = "hatchling.build"
 name = 'home-index'
 url = "http://192.168.0.29:8080/simple/"
 publish-url = "http://192.168.0.29:8080/"
-explicit = true
 
 [dependency-groups]
 dev = [
