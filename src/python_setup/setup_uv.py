@@ -13,6 +13,9 @@ def initialise_uv() -> None:
 def add_dependencies() -> None:
     os.chdir(CWD)
     subprocess.run(["uv", "sync"])
+    subprocess.run(
+        ["uv", "add", "--index-url", "http://192.168.0.29:8080/simple", "logger"]
+    )
 
 
 def read_toml_file() -> list[str]:
@@ -25,7 +28,7 @@ def override_project_name(contents: list[str]) -> list[str]:
     project_name = CWD.stem
     for x in contents:
         if "name = " in x:
-            override = x.replace("python-setup", project_name)
+            override = x.replace("project", project_name)
             edited_contents.append(override)
             continue
         edited_contents.append(x)
