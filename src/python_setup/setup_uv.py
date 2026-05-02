@@ -16,7 +16,7 @@ def add_dependencies() -> None:
 
 
 def read_toml_file() -> list[str]:
-    with open(Path(__file__).parent.parent.parent / "pyproject.toml", "r") as file:
+    with open(Path(__file__).parent / "pyproject_file_contents.txt", "r") as file:
         return file.readlines()
 
 
