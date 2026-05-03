@@ -4,6 +4,9 @@ version = "1.0.0"
 description = "Automated python project setup tool"
 readme = "README.md"
 requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.33.1",
+]
 
 [build-system]
 requires = ["hatchling"]
