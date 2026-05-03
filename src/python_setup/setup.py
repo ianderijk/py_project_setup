@@ -1,8 +1,8 @@
 import argparse
-from .setup_uv import setup_uv
-from .setup_prek import setup_prek
-from .setup_dirs import create_project_directories
-from .setup_makefile import create_makefile
+from setup_uv import setup_uv
+from setup_prek import setup_prek
+from setup_dirs import create_project_directories
+from setup_makefile import create_makefile
 
 
 def main() -> None:
