@@ -17,6 +17,10 @@ name = 'home-index'
 url = "http://192.168.0.29:8080/simple/"
 publish-url = "http://192.168.0.29:8080/"
 
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["E402"]
+"**/{tests,docs,tools}/*" = ["E402"]
+
 [dependency-groups]
 dev = [
     "ruff>=0.15.12",
