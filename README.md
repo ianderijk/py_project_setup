@@ -26,6 +26,6 @@ Automating the setup of new python projects.
 - An empty `__init__.py` file in the project directory
 
 
-# Use
+## Use
 
-The project can be build and installed globally using uv and the command `make tool`. When built and installed running `pyproject-setup <project-name>`
+The project can be build and installed globally using uv and the command `make tool`. When built and installed running `pyproj <project-name>`
