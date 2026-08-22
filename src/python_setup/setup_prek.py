@@ -10,18 +10,18 @@ def get_contents() -> list[str]:
         return file.readlines()
 
 
-def write_prek_toml(content: list[str]) -> None:
-    with open(CWD / "prek.toml", "w") as file:
+def write_prek_toml(name: str, content: list[str]) -> None:
+    with open(CWD / name / "prek.toml", "w") as file:
         for x in content:
             file.write(x)
 
 
-def install_prek() -> None:
-    os.chdir(CWD)
+def install_prek(name: str) -> None:
+    os.chdir(CWD / name)
     subprocess.run(["prek", "install"])
 
 
-def setup_prek() -> None:
+def setup_prek(name: str) -> None:
     toml_file_contents = get_contents()
-    write_prek_toml(toml_file_contents)
-    install_prek()
+    write_prek_toml(name, toml_file_contents)
+    install_prek(name)

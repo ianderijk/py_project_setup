@@ -5,13 +5,13 @@ from pathlib import Path
 CWD = Path(os.getcwd())
 
 
-def initialise_uv() -> None:
-    os.chdir(CWD)
+def initialise_uv(name: str) -> None:
+    os.chdir(CWD / name)
     subprocess.run(["uv", "init"])
 
 
-def add_dependencies() -> None:
-    os.chdir(CWD)
+def add_dependencies(name: str) -> None:
+    os.chdir(CWD / name)
     subprocess.run(["uv", "sync"])
     subprocess.run(
         ["uv", "add", "--index-url", "http://192.168.0.29:8080/simple", "logger"]
@@ -35,15 +35,15 @@ def override_project_name(contents: list[str]) -> list[str]:
     return edited_contents
 
 
-def overwrite_toml_file(contents: list[str]) -> None:
-    with open(CWD / "pyproject.toml", "w") as file:
+def overwrite_toml_file(name: str, contents: list[str]) -> None:
+    with open(CWD / name / "pyproject.toml", "w") as file:
         for x in contents:
             file.write(x)
 
 
-def setup_uv() -> None:
-    initialise_uv()
+def setup_uv(name: str) -> None:
+    initialise_uv(name)
     contents = read_toml_file()
     contents = override_project_name(contents)
-    overwrite_toml_file(contents)
-    add_dependencies()
+    overwrite_toml_file(name, contents)
+    add_dependencies(name)
